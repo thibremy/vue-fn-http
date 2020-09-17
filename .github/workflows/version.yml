@@ -1,11 +1,22 @@
 name: Version
 
+on: 
+  workflow_dispatch:
+    inputs:
+      version-level:
+        description: 'Version bump level major | minor | patch | premajor | preminor | prepatch | prerelease'     
+        required: true
+        default: 'preminor'
+      version-preid:
+        required: true
+        description: 'Version preid'
+        default: 'rc'
 jobs:
   version:
     runs-on: ubuntu-latest
     env: 
-      VERSION_LEVEL: 'minor'
-      VERSION_PREID: 'rc'
+      VERSION_LEVEL: ${{ github.event.inputs.version-level }}"
+      VERSION_PREID: ${{ github.event.inputs.version-preid }}"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
