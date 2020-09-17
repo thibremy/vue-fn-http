@@ -1,6 +1,15 @@
 {
   "name": "vue-fetch-composable",
   "version": "0.1.1",
+  "main": "dist/vue-fetch-composable.common.js",
+  "browser": "dist/vue-fetch-composable.umd.min.js",
+  "unpkg": "dist/vue-fetch-composable.umd.min.js",
+  "jsdelivr": "dist/vue-fetch-composable.umd.min.js",
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts",
+    "README.md"
+  ],
   "keywords": [
     "vue",
     "fetch",
