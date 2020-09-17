@@ -1,6 +1,4 @@
-# vue-fetch-composable
-
-Isomorphic fetch hook that should works with SSR (server side rendering).
+Isomorphic fetch hook that should|will works with SSR (server side rendering).
 
 ```
 <template>
@@ -16,7 +14,7 @@ Isomorphic fetch hook that should works with SSR (server side rendering).
 
 <script>
 import { watch } from 'vue'
-import { useFetch } from 'vue-fn-http'
+import { useFetch } from 'vue-fetch-composable'
 
 export default {
   setup(props) {
@@ -35,5 +33,6 @@ export default {
 }
 </script>
 ```
+
 
 
