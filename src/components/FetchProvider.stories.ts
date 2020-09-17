@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueCompositionApi from '@vue/composition-api'
-import { withKnobs, text  } from '@storybook/addon-knobs'
+import { withKnobs, text } from '@storybook/addon-knobs'
 import FetchProvider from './FetchProvider.vue'
 
 Vue.use(VueCompositionApi)
