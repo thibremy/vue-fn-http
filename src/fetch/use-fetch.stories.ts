@@ -4,9 +4,7 @@ import { useFetch } from './use-fetch'
 
 const FetchStory = defineComponent({
   name: 'FetchStory',
-  props: [
-    'baseUrl',
-  ],
+  props: ['baseUrl'],
   setup(props) {
     const fetcher = useFetch(props.baseUrl)
     return { fetcher }

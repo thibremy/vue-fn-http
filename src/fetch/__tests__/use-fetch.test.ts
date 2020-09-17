@@ -1,4 +1,4 @@
-import { createLocalVue  } from '@vue/test-utils'
+import { createLocalVue } from '@vue/test-utils'
 import VueCompositionApi from '@vue/composition-api'
 import { useFetch, FetchComposition } from '../use-fetch'
 

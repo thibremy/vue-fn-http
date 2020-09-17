@@ -169,7 +169,7 @@ export function useFetch<T>(
           return response
             .clone()
             .json()
-            .then(value => (bodyJsonRef.value = value))
+            .then((value) => (bodyJsonRef.value = value))
         },
       },
       blob: {
@@ -186,7 +186,7 @@ export function useFetch<T>(
           return response
             .clone()
             .blob()
-            .then(value => (bodyBlobRef.value = value))
+            .then((value) => (bodyBlobRef.value = value))
         },
       },
       text: {
@@ -203,16 +203,12 @@ export function useFetch<T>(
           return response
             .clone()
             .text()
-            .then(value => (bodyTextRef.value = value))
+            .then((value) => (bodyTextRef.value = value))
         },
       },
     }
 
-    await Promise.all([
-      formats.json.format(),
-      formats.blob.format(),
-      formats.text.format()      
-    ])
+    await Promise.all([formats.json.format(), formats.blob.format(), formats.text.format()])
   })
 
   return {
