@@ -6,7 +6,7 @@ on:
       version-level:
         description: 'Version bump level major | minor | patch | premajor | preminor | prepatch | prerelease'     
         required: true
-        default: 'preminor'
+        default: 'prerelease'
       version-preid:
         required: true
         description: 'Version preid'
