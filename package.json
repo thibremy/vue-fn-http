@@ -1,6 +1,15 @@
 {
   "name": "vue-fetch-composable",
   "version": "0.1.0",
+  "keywords": [
+    "vue",
+    "fetch",
+    "vue-hooks",
+    "vue-function-api",
+    "vue-fn",
+    "vue-composable",
+    "vue-composition-api"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve playground",
     "build": "vue-cli-service build src/index.ts --target lib --name VueFetchComposable --filename vue-fetch-composable",
