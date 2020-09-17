@@ -15,19 +15,28 @@ jobs:
   version:
     runs-on: ubuntu-latest
     env: 
-      VERSION_LEVEL: ${{ github.event.inputs.version-level }}"
-      VERSION_PREID: ${{ github.event.inputs.version-preid }}"
+      VERSION_LEVEL: ${{ github.event.inputs.version-level }}
+      VERSION_PREID: ${{ github.event.inputs.version-preid }}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - run: |
+          git config --local user.email "$(git log --format='%ae' HEAD^!)"
+          git config --local user.name "$(git log --format='%an' HEAD^!)"
+      - uses: actions/setup-node@v1
         with:
           node-version: 14
       - run: npm ci
-      - run: npm version -- ${{ env.VERSION_LEVEL }} --preid ${{ env.VERSION_PREID }}
-      - run: npm build
+      - name: Bump version ${{ env.VERSION_LEVEL }} --preid ${{ env.VERSION_PREID }}
+        run: |
+          npm version ${{ env.VERSION_LEVEL }} --preid ${{ env.VERSION_PREID }}
+          echo "::set-env name=VERSION_BUMPED::$(jq -r ".version" package.json)"
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: "chore(version): ${{ env.VERSION_LEVEL }}" 
-          title: "chore(version): ${{ env.VERSION_LEVEL }}" 
+          title: "chore(version): ${{ env.VERSION_BUMPED }}" 
           delete-branch: true
+          branch: version/${{ env.VERSION_BUMPED }}
+          body: |
+            Usage of `npm version ${{ env.VERSION_LEVEL }} --preid ${{ env.VERSION_PREID }}`
+            Version bump to `${{ env.VERSION_BUMPED }}`
