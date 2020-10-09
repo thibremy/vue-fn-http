@@ -1,5 +1,5 @@
 import { FetchStates } from './'
-import { Ref, computed } from '@vue/composition-api'
+import { Ref, computed } from 'vue'
 
 export const isRequest = (src: any): src is Request => {
   return src instanceof Request
