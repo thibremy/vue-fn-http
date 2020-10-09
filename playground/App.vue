@@ -1,23 +1,21 @@
 <template>
-  <main>
+  <section>
     <nav>
       <button v-text="'discog'" @click="() => navigateToApp('DiscogApp')" />
       <button v-text="'github'" @click="() => navigateToApp('GithubApp')" />
     </nav>
-    <keep-alive>
-      <component v-if="app" :is="app" />
-    </keep-alive>
-  </main>
+    <component v-if="app" :is="app" />
+  </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from '@vue/composition-api'
+import { defineComponent, defineAsyncComponent, computed, ref } from 'vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    DiscogApp: () => import('./components/DiscogApp.vue'),
-    GithubApp: () => import('./components/GithubApp.vue'),
+    DiscogApp: defineAsyncComponent(() => import('./components/DiscogApp.vue')),
+    GithubApp: defineAsyncComponent(() => import('./components/GithubApp.vue')),
   },
   props: {
     defaultApp: {

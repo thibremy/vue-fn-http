@@ -7,24 +7,24 @@
         </form>
       </TheCardInfo>
     </TheCard>
-    <TheCard v-if="user.json">
+    <TheCard v-if="user.json.value">
       <TheCardInfo>
-        {{ user.json }}
+        {{ user.json.value }}
       </TheCardInfo>
     </TheCard>
   </main>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api'
+import { defineComponent, defineAsyncComponent, ref } from 'vue'
 import { useGithubApi } from '../compositions/use-github-api'
 
 export default defineComponent({
   name: 'GithubApp',
   components: {
-    TheCard: () => import('./TheCard.vue'),
-    TheCardInfo: () => import('./TheCardInfo.vue'),
-    TheList: () => import('./TheList.vue'),
+    TheCard: defineAsyncComponent(() => import('./TheCard.vue')),
+    TheCardInfo: defineAsyncComponent(() => import('./TheCardInfo.vue')),
+    TheList: defineAsyncComponent(() => import('./TheList.vue')),
   },
   setup() {
     const github = useGithubApi()
