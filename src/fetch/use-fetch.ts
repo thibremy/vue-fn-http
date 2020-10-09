@@ -1,4 +1,4 @@
-import { Ref, computed, ref, watchEffect } from '@vue/composition-api'
+import { Ref, computed, ref, watchEffect } from 'vue'
 import { isRequest, isBaseURL, isFetchFetching, isFetchCompleted, isFetchIdle } from './computed'
 
 export enum FetchStates {

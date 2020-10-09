@@ -1,4 +1,4 @@
-import { watchEffect } from '@vue/composition-api'
+import { watchEffect } from 'vue'
 import { FetchComposition } from './use-fetch'
 
 export const watchFetchRequest = <T>(fetch: FetchComposition<T>, handler: Function) => {
