@@ -1,11 +1,29 @@
 <template>
-  <div>The List</div>
+  <div>
+    <template v-for="item in items">
+      <slot v-bind="item" />
+    </template>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { computed, defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
   name: 'TheList',
+  props: {
+    items: {
+      type: Array,
+    },
+  },
+  setup(props) {
+    const list = computed(() => {
+      return props.items
+    })
+
+    return {
+      list,
+    }
+  },
 })
 </script>

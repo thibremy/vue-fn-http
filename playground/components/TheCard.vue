@@ -1,5 +1,7 @@
 <template>
-  <div>The Card</div>
+  <div>
+    <slot />
+  </div>
 </template>
 
 <script lang="ts">
