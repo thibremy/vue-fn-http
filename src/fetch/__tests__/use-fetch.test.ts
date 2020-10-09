@@ -1,9 +1,4 @@
-import { createLocalVue } from '@vue/test-utils'
-import VueCompositionApi from '@vue/composition-api'
-import { useFetch, FetchComposition } from '../use-fetch'
-
-const Vue = createLocalVue()
-Vue.use(VueCompositionApi)
+import { useFetch } from '../use-fetch'
 
 const BASE_URL = 'https://jsonplaceholder.typicode.com/todos'
 
