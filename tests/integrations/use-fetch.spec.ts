@@ -1,9 +1,4 @@
-import { createLocalVue } from '@vue/test-utils'
-import VueCompositionApi, { toRaw } from '@vue/composition-api'
 import { useFetch, FetchComposition } from '../../src/fetch/use-fetch'
-
-const Vue = createLocalVue()
-Vue.use(VueCompositionApi)
 
 const expectSnapshot = (fetchTask: FetchComposition<any>) => {
   expect({

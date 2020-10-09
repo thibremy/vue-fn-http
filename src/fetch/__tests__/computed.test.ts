@@ -1,12 +1,5 @@
-import { createLocalVue } from '@vue/test-utils'
-import VueCompositionApi from '@vue/composition-api'
 import * as Computed from '../computed'
-import { useFetch, FetchStates } from '../use-fetch'
-
-const Vue = createLocalVue()
-Vue.use(VueCompositionApi)
-
-const BASE_URL = 'https://jsonplaceholder.typicode.com/todos'
+import { useFetch } from '../use-fetch'
 
 test('isFetchCompleted', async () => {
   const fetch = useFetch()
